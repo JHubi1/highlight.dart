@@ -16,8 +16,8 @@ class HighlightView extends StatelessWidget {
 
   /// Automatically detect the most likely language if [language] is null.
   ///
-  /// Notice that **this may cause performance issue** because it will try to parse source with
-  /// all registered languages and use the most relevant one.
+  /// Notice that **this may cause performance issue** because it will try to
+  /// parse source with all registered languages and use the most relevant one.
   final bool? autoDetection;
 
   /// Highlight theme
@@ -100,7 +100,10 @@ class HighlightView extends StatelessWidget {
       child: RichText(
         text: TextSpan(
           style: _textStyle,
-          children: _convert(highlight.parse(source, language: language, autoDetection: autoDetection).nodes!),
+          children: _convert(highlight
+              .parse(source,
+                  language: language, autoDetection: autoDetection ?? false)
+              .nodes!),
         ),
       ),
     );
